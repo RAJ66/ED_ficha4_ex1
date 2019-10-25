@@ -48,8 +48,12 @@ public class LinkedQueue<T> implements QueueADT<T> {
     }
 
     @Override
-    public T first() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public T first() throws EmptyCollectionException{
+        if (this.count==0) {
+            throw new EmptyCollectionException("nao tem");
+        } else {
+            return this.front.getElement();
+        }
     }
 
     @Override

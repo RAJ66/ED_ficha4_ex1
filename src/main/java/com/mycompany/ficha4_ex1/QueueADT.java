@@ -30,7 +30,7 @@ public interface QueueADT<T> {
  *
  * @return the first element in this queue
  */
- public T first();
+ public T first()throws EmptyCollectionException;
  
  /**
  * Returns true if this queue contains no elements.

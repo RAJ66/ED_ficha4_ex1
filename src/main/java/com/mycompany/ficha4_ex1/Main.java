@@ -21,7 +21,7 @@ public class Main {
         // TODO code application logic here
         LinkedQueue lista = new LinkedQueue();
 
-        int escolha = 3;
+        int escolha = 5;
 
         switch (escolha) {
             case 0: //teste de adicionar n elementos
@@ -57,11 +57,39 @@ public class Main {
             case 3: {//teste de remover quanto so tem varios elemtentos
                 try {
                     lista.enqueue(1);
-                                        lista.enqueue(2);
+                    lista.enqueue(2);
                     lista.enqueue(3);
                     lista.enqueue(4);
 
                     lista.dequeue();
+                } catch (EmptyCollectionException ex) {
+                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                System.out.println(lista.toString());
+
+            }
+
+            break;
+            case 4: {//teste do metodo first sem nada
+                try {
+
+                    lista.first();
+                } catch (EmptyCollectionException ex) {
+                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                System.out.println(lista.toString());
+
+            }
+
+            break;
+            case 5: {//teste do metodo first quando tem varios elementos
+                try {
+                    lista.enqueue(1);
+                                        lista.enqueue(2);
+                    lista.enqueue(3);
+                    lista.enqueue(4);
+
+                    System.out.println("Primeiro:   "+lista.first()+"\n");
                 } catch (EmptyCollectionException ex) {
                     Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                 }
