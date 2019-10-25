@@ -21,7 +21,7 @@ public class Main {
         // TODO code application logic here
         LinkedQueue lista = new LinkedQueue();
 
-        int escolha = 5;
+        int escolha = 9;
 
         switch (escolha) {
             case 0: //teste de adicionar n elementos
@@ -98,6 +98,41 @@ public class Main {
             }
 
             break;
+            
+            case 6: {//teste para verificar se a lista vazia
+                System.out.println(lista.isEmpty());
+
+            }
+
+            break;
+            
+            case 7: {//teste para verificar se a lista vazia uqnado ela nao esta
+                lista.enqueue(1);
+                System.out.println(lista.isEmpty());
+
+            }
+
+            break;
+            
+            case 8: {//teste de ver o tamanho quando ele esta vazio
+                
+                System.out.println(lista.size());
+
+            }
+
+            break;
+            
+            case 9: {//teste de ver o tamanho quando ele nao esta vazio
+                lista.enqueue(1);
+                                lista.enqueue(2);
+                lista.enqueue(3);
+
+                System.out.println(lista.size());
+
+            }
+
+            break;
+
 
         }
     }

@@ -24,7 +24,7 @@ public class LinkedQueue<T> implements QueueADT<T> {
     @Override
     public void enqueue(T element) {
         LinearNode<T> newNode = new LinearNode<>(element);
-        if (this.count == 0) {
+        if (this.isEmpty()) {
             this.front = newNode;
             this.rear = newNode;
         } else {
@@ -36,7 +36,7 @@ public class LinkedQueue<T> implements QueueADT<T> {
 
     @Override
     public T dequeue() throws EmptyCollectionException {
-        if (this.count==0) {
+        if (this.isEmpty()) {
             throw new EmptyCollectionException("nao tem");
         } else {
             LinearNode<T> current = this.front;
@@ -49,7 +49,7 @@ public class LinkedQueue<T> implements QueueADT<T> {
 
     @Override
     public T first() throws EmptyCollectionException{
-        if (this.count==0) {
+        if (this.isEmpty()) {
             throw new EmptyCollectionException("nao tem");
         } else {
             return this.front.getElement();
@@ -58,17 +58,21 @@ public class LinkedQueue<T> implements QueueADT<T> {
 
     @Override
     public boolean isEmpty() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (this.count == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
     public int size() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.count;
     }
 
     @Override
     public String toString() {
-        if (this.count==0) {
+        if (this.isEmpty()) {
             return "lista vazia";
         }else{
             LinearNode<T> current = this.front;
