@@ -35,8 +35,16 @@ public class LinkedQueue<T> implements QueueADT<T> {
     }
 
     @Override
-    public T dequeue() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public T dequeue() throws EmptyCollectionException {
+        if (this.count==0) {
+            throw new EmptyCollectionException("nao tem");
+        } else {
+            LinearNode<T> current = this.front;
+            this.front = this.front.getNext();
+            current.setNext(null);
+            this.count--;
+            return current.getElement();
+        }
     }
 
     @Override
@@ -56,7 +64,10 @@ public class LinkedQueue<T> implements QueueADT<T> {
 
     @Override
     public String toString() {
-        LinearNode<T> current = this.front;
+        if (this.count==0) {
+            return "lista vazia";
+        }else{
+            LinearNode<T> current = this.front;
         StringBuilder str = new StringBuilder();
         str.append("Front: ");
         str.append(this.front.getElement());
@@ -74,6 +85,7 @@ public class LinkedQueue<T> implements QueueADT<T> {
             current = current.getNext();
         }
         return str.toString();
+        }
     }
 
 }
