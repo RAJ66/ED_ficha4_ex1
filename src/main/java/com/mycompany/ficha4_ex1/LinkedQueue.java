@@ -38,31 +38,31 @@ public class LinkedQueue<T> implements QueueADT<T> {
     public T dequeue() throws EmptyCollectionException {
         if (this.isEmpty()) {
             throw new EmptyCollectionException("nao tem");
-        } else {
-            LinearNode<T> current = this.front;
-            this.front = this.front.getNext();
-            current.setNext(null);
-            this.count--;
-            return current.getElement();
         }
+        LinearNode<T> current = this.front;
+        this.front = this.front.getNext();
+        current.setNext(null);
+        this.count--;
+        return current.getElement();
+
     }
 
     @Override
-    public T first() throws EmptyCollectionException{
+    public T first() throws EmptyCollectionException {
         if (this.isEmpty()) {
             throw new EmptyCollectionException("nao tem");
-        } else {
-            return this.front.getElement();
         }
+        return this.front.getElement();
+
     }
 
     @Override
     public boolean isEmpty() {
         if (this.count == 0) {
             return true;
-        } else {
-            return false;
         }
+        return false;
+
     }
 
     @Override
@@ -74,8 +74,8 @@ public class LinkedQueue<T> implements QueueADT<T> {
     public String toString() {
         if (this.isEmpty()) {
             return "lista vazia";
-        }else{
-            LinearNode<T> current = this.front;
+        }
+        LinearNode<T> current = this.front;
         StringBuilder str = new StringBuilder();
         str.append("Front: ");
         str.append(this.front.getElement());
@@ -93,7 +93,7 @@ public class LinkedQueue<T> implements QueueADT<T> {
             current = current.getNext();
         }
         return str.toString();
-        }
+
     }
 
 }
